@@ -1,0 +1,41 @@
+.star {
+  position: absolute;
+  border-radius: 9999px;
+  background: hsl(var(--star-glow));
+  box-shadow: 0 0 10px 2px hsl(var(--star-tint) / 0.45);
+}
+
+.meteor {
+  position: absolute;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    hsl(var(--star-glow)),
+    hsl(var(--star-tint) / 0.9),
+    transparent
+  );
+  box-shadow: 0 0 10px 5px hsl(var(--star-tint) / 0.25);
+}
+
+@layer utilities {
+  .animate-pulse-subtle {
+    animation: pulse-subtle 4s ease-in-out infinite;
+  }
+
+  .animate-meteor {
+    animation: meteor 5s linear infinite;
+  }
+}
+
+.star-background {
+  opacity: 0.28;
+}
+
+:root:not(.dark) .star-background {
+  opacity: 0.22;
+}
+
+:root:not(.dark) .star {
+  background: hsl(var(--primary));
+  box-shadow: none;
+}

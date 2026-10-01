@@ -73,6 +73,12 @@
     --primary-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
+
+    --surface: 220 33% 97%;
+    --surface-strong: 0 0% 100%;
+    --muted: 222 19% 40%;
+    --star-tint: 250 78% 72%;
+    --star-glow: 210 40% 98%;
   }
 
   .dark {
@@ -85,6 +91,12 @@
     --primary-foreground: 213 31% 91%;
 
     --border: 217 33% 20%;
+
+    --surface: 222 47% 8%;
+    --surface-strong: 222 47% 10%;
+    --muted: 214 13% 72%;
+    --star-tint: 250 78% 72%;
+    --star-glow: 210 40% 98%;
   }
 
   * {
@@ -97,61 +109,10 @@
 
   body {
     @apply bg-background text-foreground transition-colors duration-300;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
-}
-
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
-
-  @media (width >= 640px) {
-    max-width: 640px;
-  }
-  @media (width >= 768px) {
-    max-width: 768px;
-  }
-  @media (width >= 1024px) {
-    max-width: 1024px;
-  }
-  @media (width >= 1280px) {
-    max-width: 1280px;
-  }
-  @media (width >= 1400px) {
-    max-width: 1400px;
-  }
-}
-
-@utility text-glow {
-  @apply relative;
-  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
-}
-
-@utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
-}
-
-@utility gradient-border {
-  @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-  background-clip: padding-box;
-  border: 1px solid transparent;
-}
-
-@utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-         hover:scale-105 active:scale-95;
-}
-
-@utility star {
-  @apply absolute rounded-full bg-white;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
-}
-
-@utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
 #root {
@@ -160,3 +121,60 @@
   padding: 0;
   text-align: center;
 }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button,
+a,
+input,
+textarea,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 5px;
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.3);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+/* @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: 0.01ms !important;
+    transition: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}  */

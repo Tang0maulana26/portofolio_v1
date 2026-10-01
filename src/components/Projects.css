@@ -1,0 +1,241 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23px;
+  align-items: start;
+}
+.project-card {
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  overflow: hidden;
+  background: hsl(var(--card) / 0.85);
+}
+.project-art {
+  height: 232px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  color: hsl(var(--foreground));
+}
+.preview-label {
+  font-size: 6px;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+.cosmos {
+  background: radial-gradient(
+    ellipse at 85% 90%,
+    hsl(var(--primary) / 0.42),
+    hsl(var(--card) / 0.7) 40%,
+    hsl(var(--background)) 70%
+  );
+}
+.project-art strong {
+  display: block;
+  position: relative;
+  z-index: 1;
+  font-size: 29px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-top: 45px;
+}
+.project-art em {
+  font-style: normal;
+  color: hsl(var(--primary));
+}
+.mini-orbit {
+  width: 210px;
+  height: 210px;
+  border: 1px solid hsl(var(--primary) / 0.22);
+  border-radius: 50%;
+  position: absolute;
+  right: -70px;
+  bottom: -35px;
+  box-shadow:
+    0 0 0 25px hsl(var(--primary) / 0.06),
+    0 0 0 55px hsl(var(--primary) / 0.03);
+}
+.tiny-star {
+  position: absolute;
+  right: 37px;
+  top: 66px;
+  font-size: 36px;
+  color: hsl(var(--primary) / 0.9);
+}
+.dashboard {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.15),
+    hsl(var(--card) / 0.7) 52%,
+    hsl(var(--background)) 100%
+  );
+}
+.mini-dashboard {
+  margin: 20px 0 0 9px;
+  background: #f5f7f6;
+  border-radius: 7px;
+  display: flex;
+  height: 183px;
+  padding: 16px 10px;
+  color: #273c37;
+  box-shadow: 0 14px 25px #182d3925;
+  transform: rotate(-4deg);
+}
+.dashboard .preview-label {
+  color: #435c54;
+}
+.mini-sidebar {
+  border-right: 1px solid #d8e1de;
+  width: 25px;
+  line-height: 30px;
+}
+.mini-content {
+  flex: 1;
+  padding-left: 13px;
+  font-size: 10px;
+}
+.mini-content > span {
+  display: flex;
+  justify-content: space-between;
+}
+.mini-metrics {
+  display: flex;
+  gap: 35px;
+  margin-top: 15px;
+  font-size: 18px;
+}
+.mini-metrics small {
+  display: block;
+  font-size: 6px;
+  font-weight: 400;
+}
+.mini-chart {
+  display: flex;
+  align-items: end;
+  gap: 6px;
+  height: 92px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.mini-chart i {
+  flex: 1;
+  background: #80ac9c;
+  border-radius: 3px 3px 0 0;
+}
+.studio {
+  background: #e6dbca;
+  color: #38362f;
+}
+.studio strong {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  margin-top: 30px;
+  font-size: 34px;
+}
+.studio em {
+  color: #82724e;
+  font-style: italic;
+}
+.studio-sphere {
+  position: absolute;
+  right: -27px;
+  top: 30px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at 25% 25%, #f7eedb, #b7a483 60%, #857150);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.studio-caption {
+  position: absolute;
+  bottom: 23px;
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+.project-body {
+  padding: 23px;
+}
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  color: hsl(var(--primary));
+  font-size: 9px;
+  letter-spacing: 0.6px;
+}
+.project-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 14px 0 12px;
+  letter-spacing: -0.5px;
+}
+.project-body p {
+  font-size: 12px;
+  line-height: 1.85;
+  color: hsl(var(--foreground) / 0.55);
+}
+details {
+  border-top: 1px solid hsl(var(--border));
+  margin-top: 24px;
+  padding-top: 15px;
+}
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+details[open] summary {
+  color: hsl(var(--primary));
+}
+details p {
+  margin-top: 15px;
+}
+@media (max-width: 959px) {
+  .project-grid {
+    gap: 14px;
+  }
+  .project-art {
+    height: 200px;
+    padding: 18px;
+  }
+  .project-art strong {
+    font-size: 24px;
+  }
+  .project-body {
+    padding: 18px;
+  }
+  .project-body h3 {
+    font-size: 17px;
+  }
+}
+@media (max-width: 700px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .project-art {
+    height: 240px;
+    padding: 26px;
+  }
+  .project-art strong {
+    font-size: 36px;
+  }
+  .project-body {
+    padding: 25px;
+  }
+  .project-body h3 {
+    font-size: 22px;
+  }
+  .mini-dashboard {
+    max-width: 290px;
+    margin-inline: auto;
+  }
+  .project-body p {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title">
+  <title id="title">Analytics dashboard concept preview</title>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#d8e7df"/><stop offset="1" stop-color="#b5cfc5"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#233b34" flood-opacity=".22"/></filter></defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <text x="77" y="88" fill="#3d5b50" font-family="Arial,sans-serif" font-size="16" letter-spacing="5">DESIGN EXPLORATION</text>
+  <g transform="translate(145 143) rotate(-3 455 255)" filter="url(#shadow)">
+    <rect width="910" height="508" rx="22" fill="#f7faf8"/>
+    <path d="M95 0v508" stroke="#dce8e2" stroke-width="2"/>
+    <g fill="#638b7a"><circle cx="46" cy="50" r="15"/><rect x="28" y="135" width="38" height="9" rx="5"/><rect x="28" y="185" width="38" height="9" rx="5"/><rect x="28" y="235" width="38" height="9" rx="5"/></g>
+    <text x="136" y="74" fill="#2d443b" font-family="Arial,sans-serif" font-size="28" font-weight="700">Overview</text>
+    <text x="742" y="72" fill="#749084" font-family="Arial,sans-serif" font-size="16">Last 30 days</text>
+    <rect x="135" y="105" width="286" height="142" rx="13" fill="#eaf3ee"/><rect x="442" y="105" width="286" height="142" rx="13" fill="#eaf3ee"/>
+    <text x="159" y="164" fill="#29483b" font-family="Arial,sans-serif" font-size="42" font-weight="700">24.8k</text><text x="159" y="206" fill="#759083" font-family="Arial,sans-serif" font-size="17">Visitors</text>
+    <text x="466" y="164" fill="#29483b" font-family="Arial,sans-serif" font-size="42" font-weight="700">+18.6%</text><text x="466" y="206" fill="#759083" font-family="Arial,sans-serif" font-size="17">Growth</text>
+    <path d="M138 418h680" stroke="#dbe7df" stroke-width="2"/>
+    <g fill="#88b5a1"><rect x="148" y="352" width="34" height="66" rx="5"/><rect x="205" y="315" width="34" height="103" rx="5"/><rect x="262" y="338" width="34" height="80" rx="5"/><rect x="319" y="290" width="34" height="128" rx="5"/><rect x="376" y="302" width="34" height="116" rx="5"/><rect x="433" y="263" width="34" height="155" rx="5"/><rect x="490" y="278" width="34" height="140" rx="5"/><rect x="547" y="228" width="34" height="190" rx="5"/><rect x="604" y="245" width="34" height="173" rx="5"/><rect x="661" y="198" width="34" height="220" rx="5"/></g>
+  </g>
+</svg>

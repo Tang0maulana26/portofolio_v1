@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title">
+  <title id="title">Personal portfolio preview</title>
+  <defs>
+    <radialGradient id="sky" cx="82%" cy="78%" r="88%"><stop stop-color="#49336c"/><stop offset=".62" stop-color="#1e192d"/><stop offset="1" stop-color="#10101b"/></radialGradient>
+    <radialGradient id="planet" cx="28%" cy="20%"><stop stop-color="#625377"/><stop offset=".48" stop-color="#2a243a"/><stop offset="1" stop-color="#14121e"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="1200" height="700" fill="url(#sky)"/>
+  <g fill="#bba7e6" opacity=".65"><circle cx="100" cy="120" r="2"/><circle cx="300" cy="80" r="1.5"/><circle cx="520" cy="150" r="2"/><circle cx="1080" cy="90" r="2"/><circle cx="900" cy="580" r="1.5"/><circle cx="180" cy="570" r="1.5"/></g>
+  <ellipse cx="915" cy="360" rx="245" ry="180" fill="none" stroke="#a88be0" stroke-opacity=".24" stroke-width="2" transform="rotate(-25 915 360)"/>
+  <ellipse cx="915" cy="360" rx="310" ry="220" fill="none" stroke="#a88be0" stroke-opacity=".12" stroke-width="2" transform="rotate(25 915 360)"/>
+  <circle cx="915" cy="360" r="152" fill="#a88be0" opacity=".18" filter="url(#glow)"/>
+  <circle cx="915" cy="360" r="147" fill="url(#planet)" stroke="#a88be0" stroke-opacity=".27"/>
+  <text x="835" y="398" fill="#f1ebff" font-family="Arial,sans-serif" font-size="116" font-weight="700" letter-spacing="-10">im<tspan fill="#a995e6">.</tspan></text>
+  <text x="76" y="91" fill="#b9a9de" font-family="Arial,sans-serif" font-size="16" letter-spacing="5">PERSONAL SPACE / 001</text>
+  <text x="76" y="350" fill="#f4f0fa" font-family="Arial,sans-serif" font-size="72" font-weight="700" letter-spacing="-3">Ideas beyond</text>
+  <text x="76" y="430" fill="#b4a0e7" font-family="Arial,sans-serif" font-size="72" font-weight="700" letter-spacing="-3">the ordinary.</text>
+  <text x="76" y="615" fill="#c6b6e7" font-family="Arial,sans-serif" font-size="18" letter-spacing="3">REACT  ·  TAILWIND  ·  VITE</text>
+</svg>

@@ -1,7 +1,6 @@
-import { createRootRoute, Outlet } from '@tanstack/react-router'
-import { Navbar } from '../components/Navbar' // Import navbar yang baru dibuat
-import { ThemeToggle } from '../components/ThemeToogle'
-import { StarBackground } from '../components/StarBackground'
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { Navbar } from "../components/Navbar";
+import { StarBackground } from "../components/StarBackground";
 
 // Root route yang membungkus seluruh aplikasi
 // index.jsx fokus pada urutan cerita (Hero -> About -> Contact), sedangkan __root.jsx fokus pada tata letak aplikasi.
@@ -9,17 +8,13 @@ import { StarBackground } from '../components/StarBackground'
 export const Route = createRootRoute({
   component: () => (
     <>
-      {/* Theme Toggle */}
-      <ThemeToggle />
-      {/* Bacground Effects */}
       <StarBackground />
-      {/* Panggil Navbar di sini */}
       <Navbar />
-      
-      {/* Main Content */}
-      <main>
+
+
+      <main id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
     </>
   ),
-})
+});

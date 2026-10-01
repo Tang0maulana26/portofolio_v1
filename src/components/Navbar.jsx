@@ -1,97 +1,103 @@
+import "./Navbar.css";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import { cn } from "../lib/utils"; // Pastikan path ini benar
-
-// Sesuaikan href dengan ID section Tuan Muda (Home, About, dll)
+import { useEffect, useRef, useState } from "react";
+import { ThemeToggle } from "./ThemeToogle";
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
+  "Home",
+  "About",
+  "Skills",
+  "Projects",
+  "Experience",
+  "Contact",
 ];
-
+const sectionId = (name) => (name === "Home" ? "hero" : name.toLowerCase());
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("hero");
+  const toggle = useRef(null);
+  const nav = useRef(null);
   useEffect(() => {
     const handleScroll = () => {
-      // PERBAIKAN: Gunakan scrollY, bukan screenY
-      setIsScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 10);
+      const current = navItems
+        .map(sectionId)
+        .filter(
+          (id) =>
+            document.getElementById(id)?.getBoundingClientRect().top <= 160,
+        )
+        .at(-1);
+      setActive(current || "hero");
     };
-
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  useEffect(() => {
+    if (!open) return;
+    const close = (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+    };
+    const outside = (event) => {
+      if (!nav.current?.contains(event.target)) setOpen(false);
+    };
+    const media = window.matchMedia("(min-width: 960px)");
+    const resize = () => {
+      if (media.matches) setOpen(false);
+    };
+    document.addEventListener("keydown", close);
+    document.addEventListener("pointerdown", outside);
+    media.addEventListener("change", resize);
+    return () => {
+      document.removeEventListener("keydown", close);
+      document.removeEventListener("pointerdown", outside);
+      media.removeEventListener("change", resize);
+    };
+  }, [open]);
   return (
     <nav
-      className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        // Saya ganti bg-background jadi bg-white agar pasti muncul warnanya
-        isScrolled 
-          ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" 
-          : "py-5"
-      )}
+      ref={nav}
+      className={`site-nav ${scrolled ? "scrolled" : ""}`}
+      aria-label="Main navigation"
     >
-      <div className="container flex items-center justify-between">
-        {/* LOGO */}
-        <a
-          className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Ilham </span>{" "}
-            Muhammad
-          </span>
+      <div className="nav-inner">
+        <a className="brand" href="#hero" onClick={() => setOpen(false)}>
+          Ilham <span>Muhammad</span>
         </a>
-
-        {/* DESKTOP NAV */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
+        <div
+          id="navigation-links"
+          className={`nav-links ${open ? "is-open" : ""}`}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget))
+              setOpen(false);
+          }}
+        >
+          {navItems.map((name) => (
             <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              key={name}
+              href={`#${sectionId(name)}`}
+              aria-current={active === sectionId(name) ? "location" : undefined}
+              onClick={() => setOpen(false)}
             >
-              {item.name}
+              {name}
             </a>
           ))}
         </div>
-
-        {/* MOBILE MENU BUTTON */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-slate-900 z-50"
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* MOBILE NAV OVERLAY */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen 
-            ? "opacity-100 visible pointer-events-auto" 
-            : "opacity-0 invisible pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-8 text-xl">
-            {navItems.map((item, key) => (
-              <a
-                key={key}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
+        <div className="nav-actions">
+          <ThemeToggle />
+          <button
+            ref={toggle}
+            className="menu-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="navigation-links"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
         </div>
       </div>
     </nav>

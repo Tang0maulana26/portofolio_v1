@@ -1,0 +1,60 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
+  margin-top: 40px;
+}
+.large-copy {
+  font-size: 21px;
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+.value-list {
+  display: grid;
+  gap: 25px;
+  align-content: start;
+}
+.value-item {
+  display: flex;
+  gap: 18px;
+  padding-block: 5px;
+}
+.icon-tile {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  background: hsl(var(--primary) / 0.09);
+  color: hsl(var(--primary));
+  border: 1px solid hsl(var(--primary) / 0.15);
+  border-radius: 10px;
+}
+.value-item h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 1px 0 7px;
+}
+.value-item p {
+  color: hsl(var(--foreground) / 0.5);
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+@media (max-width: 1100px) {
+  .about-grid {
+    gap: 50px;
+  }
+}
+@media (max-width: 700px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .about-grid {
+    margin-top: 26px;
+  }
+  .large-copy {
+    font-size: 19px;
+  }
+}

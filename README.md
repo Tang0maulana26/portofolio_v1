@@ -88,3 +88,7 @@ Jalankan `bun run build`, kemudian upload isi folder `dist` ke document root hos
 - Jalankan lint dan build.
 - Periksa tampilan desktop dan mobile dalam tema terang dan gelap.
 - Uji formulir kontak dari domain production.
+
+## License
+
+This project uses the [MIT](LICENSE) license.
